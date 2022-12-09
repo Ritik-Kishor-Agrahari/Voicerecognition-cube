@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    text-align: center;
+    min-height: 100vh;
+    background-color: #fbfbfb;
+    padding: 15px;
+    color: #111;
+    perspective: 1000px;
+    text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.color-cube {
+    --cube-color: orange;
+    position: relative;
+    width: 140px;
+    height: 140px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-40deg);
+    animation: rotateCube 5s linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.4);
+    background-color: var(--cube-color);
+    transition: background-color 500ms;
+}
+
+.cube-front {
+    transform: translateZ(70px);
+}
+
+.cube-back {
+    transform: rotateY(180deg) translateZ(70px);
+}
+
+.cube-bottom {
+    transform: rotateX(-90deg) translateZ(70px);
+}
+
+.cube-top {
+    transform: rotateX(90deg) translateZ(70px);
+}
+
+.cube-left {
+    transform: rotateY(-90deg) translateZ(70px);
+}
+
+.cube-right {
+    transform: rotateY(90deg) translateZ(70px);
+}
+
+.color-name {
+    font-size: 40px;
+    font-weight: 500;
+    margin: 55px 0 30px;
+}
+
+.heard-output,
+.confidence-output {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 18px;
+}
+
+.colors-list {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 2px solid #111;
+    margin-top: 10px;
+}
+
+@keyframes rotateCube {
+    to {
+        transform: rotateX(-20deg) rotateY(-400deg);
+    }
+}
